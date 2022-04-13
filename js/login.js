@@ -1,3 +1,5 @@
+const currServer = "asyncGame/";
+
 function login() {
     var username = $("#username").val();
     var password = $("#password").val();
@@ -14,17 +16,19 @@ function login() {
 
     // Send login request to server
     $.ajax({
-        url: "/php/login.php",
+        url: "php/login.php",
         type: "POST",
         data: {
             username: username,
             password: password
         },
         success: function (data) {
-            console.log("Logged in");
             console.log(data);
-            if (data == "invalid") {
-                loginError();
+            var data = JSON.parse(data);
+            if (data.success) {
+                // Add token to cookies and redirect to game 
+                setTokenCookie(data.token);
+                // window.location.href = "game.php";
             }
         }
     });

@@ -90,3 +90,8 @@ END
 $
 
 DELIMITER ;
+
+GRANT EXECUTE ON PROCEDURE loginUser TO matthfzp_login@localhost;
+GRANT EXECUTE ON PROCEDURE addUser TO matthfzp_login@localhost;
+GRANT EXECUTE ON PROCEDURE validateUser TO matthfzp_login@localhost;
+GRANT EXECUTE ON PROCEDURE validateUserToken TO matthfzp_login@localhost;
