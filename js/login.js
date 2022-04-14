@@ -24,11 +24,11 @@ function login() {
         },
         success: function (data) {
             console.log(data);
-            var data = JSON.parse(data);
+            data = JSON.parse(data);
             if (data.success) {
                 // Add token to cookies and redirect to game 
                 setTokenCookie(data.token);
-                // window.location.href = "game.php";
+                window.location.href = "index.html";
             }
         }
     });

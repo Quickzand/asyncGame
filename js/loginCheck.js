@@ -6,7 +6,23 @@ function validate() {
     if (token == null) {
         invalidToken();
     }
-    token != null ? console.log("Token: " + token) : console.log("No token");
+    $.ajax({
+        url: "php/validateToken.php",
+        type: "POST",
+        data: {
+            token: token
+        },
+        success: function (data) {
+            data = JSON.parse(data);
+            if (data.success) {
+                // Token is still valid
+                return;
+            } else {
+                // Token is invalid
+                invalidToken();
+            }
+        }
+    });
 }
 
 function getCookie(cname) {
