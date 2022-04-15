@@ -24,19 +24,14 @@ else {
 
 $mysql = new mysqli($servername, $databaseUsername, $databasePassword, $databaseName);
 
-// Checks if the connection was successful
 if ($mysql->connect_error) {
     die("Connection failed: " . $mysql->connect_error);
 }
 
-// Prepares the query 
-$stmt = $mysql->prepare("CALL loginUser('" . $username . "','" . $password . "')");
+$result = $mysql->query("CALL loginUser('" . $username . "','" . $password . "')");
 
-// Executes the query
-$stmt->execute();
 
 // retreives token returned from query
-$result = $stmt->get_result();
 $row = $result->fetch_assoc();
 $token = $row['TOKEN'];
 

@@ -68,6 +68,9 @@ function setTokenCookie(token) {
     setCookie("loginToken", token, 1);
 }
 
+function setUsernameCookie(username) {
+    setCookie("username", username, 1);
+}
 
 // Resets the users token for login and requires them to log in again 
 

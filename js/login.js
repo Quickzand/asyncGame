@@ -30,6 +30,7 @@ function login() {
             if (data.success) {
                 // Add token to cookies and redirect to game 
                 setTokenCookie(data.token);
+                setUsernameCookie(username);
                 window.location.href = "index.html";
             } else {
                 loginError();

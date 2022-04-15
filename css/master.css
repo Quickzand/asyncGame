@@ -20,6 +20,7 @@ body {
     padding: 0;
     margin: 0;
     background-color: var(--main-background-color);
+    overflow-x: hidden;
     color: var(--main-font-color);
     font-family: var(--body-font);
 }
@@ -44,4 +45,62 @@ body {
 
 .button:active {
     filter: brightness(0.8);
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: var(--main-background-color);
+    transition: all 0.25s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+
+}
+
+nav.scrolled {
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+
+.navButton,
+.dropDownButton {
+    display: block;
+    color: var(--main-font-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-family: var(--button-font);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.25s ease-in-out;
+    position: relative;
+}
+
+.navButton .dropDown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(100%);
+    background-color: var(--secondary-background-color);
+    display: none;
+}
+
+.navButton:hover,
+.dropDownButton:hover {
+    background-color: var(--main-accent-color);
+}
+
+.navButton:hover .dropDown {
+    display: block;
+
+}
+
+.navButton:last-child {
+    margin-right: 1rem;
 }
