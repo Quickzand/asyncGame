@@ -9,6 +9,9 @@
     --main-border-radius: 0.5rem;
     --main-font-color: #424242;
     --error-color: #ff3333;
+    --error-background-color: #ffaaaa;
+    --main-accent-color: #33FF88;
+    --secondary-accent-color: #55BB99;
 }
 
 body {
@@ -36,6 +39,7 @@ body {
     padding: 0.5rem;
     font-size: 1.5rem;
     cursor: pointer;
+    user-select: none;
 }
 
 .button:active {

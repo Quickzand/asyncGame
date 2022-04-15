@@ -1,0 +1,121 @@
+#profilePicture {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 0.25rem solid var(--main-background-color);
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+
+
+#profileBody {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileHeader {
+    height: 15rem;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: linear-gradient(30deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
+        linear-gradient(150deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
+        linear-gradient(30deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
+        linear-gradient(150deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
+        linear-gradient(60deg, var(--secondary-accent-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-accent-color) 75%, var(--secondary-accent-color)),
+        linear-gradient(60deg, var(--secondary-accent-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-accent-color) 75%, var(--secondary-accent-color));
+    background-size: 20px 35px;
+    background-position: 0 0,
+        0 0,
+        10px 18px,
+        10px 18px,
+        0 0,
+        10px 18px;
+    background-color: var(--secondary-background-color);
+    background-attachment: fixed;
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-bottom: 6rem;
+    box-shadow: inset 0rem -0.5rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+#username {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: var(--header-font);
+    font-weight: bold;
+}
+
+
+.profileSectionHeader {
+    text-align: left;
+    font-size: 2rem;
+    font-family: var(--header-font);
+    font-weight: lighter;
+    margin-top: 1rem;
+}
+
+.profileSection {
+    width: 50vw;
+}
+
+
+#userWidgetsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    box-shadow: inset 1rem 0rem 2rem var(--main-background-color), inset -1rem 0rem 2rem var(--main-background-color);
+    overflow-x: scroll;
+    width: 100%;
+    height: 20rem;
+    padding-left: 1rem;
+
+}
+
+
+.userWidget {
+    border-radius: var(--main-border-radius);
+    background-color: var(--secondary-background-color);
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    margin-right: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    pointer-events: all;
+}
+
+.userWidget:hover {
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25), 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    transform: scale(1.2);
+
+}
+
+.userWidget img {
+    width: 8rem;
+    border-radius: 50%;
+    border: 0.25rem solid var(--main-background-color);
+}
+
+.userWidget .userWidgetName {
+    font-size: 1.5rem;
+    font-family: var(--header-font);
+    font-weight: bold;
+    margin-top: 0.5rem;
+}

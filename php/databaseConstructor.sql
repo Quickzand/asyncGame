@@ -5,8 +5,8 @@ DROP PROCEDURE IF EXISTS addUser;
 DROP PROCEDURE IF EXISTS validateUser;
 DROP PROCEDURE IF EXISTS loginUser;
 DROP PROCEDURE IF EXISTS validateUserToken;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS userTokens;
+DROP TABLE IF EXISTS users;
 
 -- Language: mysql
 
@@ -86,6 +86,16 @@ BEGIN
     SET @tempTOD = NULL;
     SELECT user_id INTO @tempId FROM userTokens WHERE token = pToken;
     SELECT TOD INTO @tempTOD FROM userTokens WHERE token = pToken;
+    IF @tempId IS NOT NULL THEN
+        IF TIMESTAMPDIFF(HOUR, @tempTOD, CURRENT_TIMESTAMP()) < 2 THEN
+            SELECT 'VALID' AS VALID;
+        ELSE
+            DELETE FROM userTokens WHERE token = pToken;
+            SELECT 'ERROR TOKEN EXPIRED' AS VALID;
+        END IF;
+    ELSE
+        SELECT 'ERROR INVALID TOKEN' AS VALID;
+    END IF;
 END
 $
 

@@ -25,17 +25,31 @@ function login() {
         success: function (data) {
             console.log(data);
             data = JSON.parse(data);
+            $("#loginForm").removeClass("error");
+
             if (data.success) {
                 // Add token to cookies and redirect to game 
                 setTokenCookie(data.token);
                 window.location.href = "index.html";
+            } else {
+                loginError();
             }
+
         }
     });
-
-
 }
+
+
+
+// Runs login when enter is hit in field
+$("#loginForm input").on("keyup", function (e) {
+    if (e.keyCode == 13) {
+        login();
+    }
+});
+
 
 function loginError() {
     $("#loginError").text("Invalid username or password");
+    $("#loginForm").addClass("error");
 }

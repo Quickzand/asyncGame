@@ -13,6 +13,7 @@ function validate() {
             token: token
         },
         success: function (data) {
+            console.log(data)
             data = JSON.parse(data);
             if (data.success) {
                 // Token is still valid
@@ -20,6 +21,7 @@ function validate() {
             } else {
                 // Token is invalid
                 invalidToken();
+                // console.log(token);
             }
         }
     });

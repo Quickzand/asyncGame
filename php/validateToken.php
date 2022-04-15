@@ -7,17 +7,15 @@ $databaseName = "matthfzp_asyncGame";
 
 $mysql = new mysqli($servername, $databaseUsername, $databasePassword, $databaseName);
 
-$stmt = $mysql->prepare("CALL validateUserToken('".$_POST["token"]."')");
-$stmt->execute();
-$result = $stmt->get_result();
+$result = $mysql->query("CALL validateUserToken('".$_POST["token"]."')");
+
+
 
 // Sets up output json
 $resultJson = array();
 
-
-
-// If result is empty, token is invalid
-if($result->num_rows == 0) {
+// If result contains 'valid' for the first column, then the token is valid
+if($result->fetch_assoc()["VALID"] != 'VALID') {
     $resultJson['success'] = false;
     echo json_encode($resultJson);
     exit();
