@@ -26,19 +26,19 @@
     height: 15rem;
     background-color: #e5e5f7;
     opacity: 0.8;
-    background-image: linear-gradient(30deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
-        linear-gradient(150deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
-        linear-gradient(30deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
-        linear-gradient(150deg, var(--main-accent-color) 12%, transparent 12.5%, transparent 87%, var(--main-accent-color) 87.5%, var(--main-accent-color)),
-        linear-gradient(60deg, var(--secondary-accent-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-accent-color) 75%, var(--secondary-accent-color)),
-        linear-gradient(60deg, var(--secondary-accent-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-accent-color) 75%, var(--secondary-accent-color));
-    background-size: 20px 35px;
+    background-image: linear-gradient(30deg, var(--secondary-background-color) 12%, transparent 12.5%, transparent 87%, var(--secondary-background-color) 87.5%, var(--secondary-background-color)),
+        linear-gradient(150deg, var(--secondary-background-color) 12%, transparent 12.5%, transparent 87%, var(--secondary-background-color) 87.5%, var(--secondary-background-color)),
+        linear-gradient(30deg, var(--secondary-background-color) 12%, transparent 12.5%, transparent 87%, var(--secondary-background-color) 87.5%, var(--secondary-background-color)),
+        linear-gradient(150deg, var(--secondary-background-color) 12%, transparent 12.5%, transparent 87%, var(--secondary-background-color) 87.5%, var(--secondary-background-color)),
+        linear-gradient(60deg, var(--main-background-color) 25%, transparent 25.5%, transparent 75%, var(--main-background-color) 75%, var(--main-background-color)),
+        linear-gradient(60deg, var(--main-background-color) 25%, transparent 25.5%, transparent 75%, var(--main-background-color) 75%, var(--main-background-color));
+    background-size: 40px 70px;
     background-position: 0 0,
         0 0,
-        10px 18px,
-        10px 18px,
+        20px 36px,
+        20px 36px,
         0 0,
-        10px 18px;
+        20px 36px;
     background-color: var(--secondary-background-color);
     background-attachment: fixed;
     width: 100%;

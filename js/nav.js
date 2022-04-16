@@ -7,10 +7,15 @@ var navElements = {
         "title": "Play",
         "url": "play.html"
     },
+    "lobbies": {
+        "title": "Lobbies",
+        "url": "lobbies.html"
+    },
     "friends": {
         "title": "Friends",
         "url": "friends.html"
     },
+
     "profile": {
         "title": getCookie("username"),
         "url": "profile.html",

@@ -16,7 +16,7 @@
 
 <body>
 
-    <div id="loginForm">
+    <div id="loginForm" class="form">
         <div id="loginHeader" class="header">
             Login
         </div>
@@ -29,8 +29,41 @@
         <div class="loginContainer">
             <div id="loginError"></div>
         </div>
+        <div class="loginContainer" id="multi-button-container">
+            <div id="resetPasswordButton" class="button">Reset Password</div>
+            <div id="createAccountOpenButton" class="button" onclick="openCreateAccount()">Create Account</div>
+        </div>
+
         <div class="loginContainer">
             <div id="loginButton" class="button" onclick="login()">Continue</div>
+        </div>
+    </div>
+
+
+    <div id="createAccountForm" class="form">
+        <div id="createAccountHeader" class="header">
+            Create Account
+        </div>
+        <div class="loginContainer">
+            <input type="text" id="createEmail" placeholder="Email">
+        </div>
+        <div class="loginContainer">
+            <input type="text" id="createUsername" placeholder="Username">
+        </div>
+        <div class="loginContainer">
+            <input type="password" id="createPassword" placeholder="Password">
+        </div>
+        <div class="loginContainer">
+            <input type="password" id="createPasswordConfirm" placeholder="Confirm Password">
+        </div>
+        <div class="loginContainer">
+            <div id="createAccountError"></div>
+        </div>
+        <div class="loginContainer">
+            <div id="createAccountButton" class="button" onclick="createAccount()">Create Account</div>
+        </div>
+        <div class="loginContainer">
+            <div id="backToLoginButton" class="button" onclick="openLoginForm()">Back</div>
         </div>
     </div>
 
