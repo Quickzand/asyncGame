@@ -54,3 +54,45 @@ function loginError() {
     $("#loginError").text("Invalid username or password");
     $("#loginForm").addClass("error");
 }
+
+
+
+function openCreateAccount() {
+    $("#loginForm").addClass("hidden");
+    $("#createAccountForm").removeClass("hidden");
+}
+
+function openLoginForm() {
+    $("#createAccountForm").addClass("hidden");
+    $("#loginForm").removeClass("hidden");
+}
+
+openLoginForm();
+
+
+
+function createAccount() {
+    var username = $("#createUsername").val();
+    var password = $("#createPassword").val();
+    var passwordConfirm = $("#createPasswordConfirm").val();
+    var email = $("#createEmail").val();
+
+    // Check if username and password are not empty
+    if (username == "" || password == "") {
+        createAccountError();
+    }
+
+    if (password != passwordConfirm) {
+        createAccountError();
+    }
+
+    // Checks if username and password pass regex
+    if (!username.match(/^[a-zA-Z0-9]+$/) || !password.match(/^[a-zA-Z0-9]+$/)) {
+        createAccountError();
+    }
+
+    // Checks if email passes regex
+    if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
+
+
+    }
