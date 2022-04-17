@@ -79,21 +79,82 @@ function createAccount() {
 
     // Check if username and password are not empty
     if (username == "" || password == "") {
-        createAccountError();
+        createAccountError("Username and password cannot be empty");
+        return;
     }
 
     if (password != passwordConfirm) {
-        createAccountError();
+        createAccountError("Passwords do not match");
+        return;
     }
 
     // Checks if username and password pass regex
     if (!username.match(/^[a-zA-Z0-9]+$/) || !password.match(/^[a-zA-Z0-9]+$/)) {
-        createAccountError();
+        createAccountError("Username and password must only contain letters and numbers");
+        return;
     }
 
     // Checks if email passes regex
     if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
-
-
+        createAccountError("Invalid email");
+        return;
     }
+
+    // Send login request to server
+    $.ajax({
+        url: "php/createAccount.php",
+        type: "POST",
+        data: {
+            username: username,
+            password: password,
+            email: email
+        },
+        success: function (data) {
+            console.log(data);
+            data = JSON.parse(data);
+            if (data.success) {
+                $("#createAccountForm").removeClass("error");
+                loginAccount(username, password);
+            } else {
+                createAccountError();
+            }
+
+        }
+    });
+}
+
+
+
+function loginAccount(username, password) {
+    // Send login request to server
+    $.ajax({
+        url: "php/login.php",
+        type: "POST",
+        data: {
+            username: username,
+            password: password
+        },
+        success: function (data) {
+            console.log(data);
+            data = JSON.parse(data);
+
+
+            if (data.success) {
+                // Add token to cookies and redirect to game 
+                setTokenCookie(data.token);
+                setUsernameCookie(username);
+                window.location.href = "index.html";
+            } else {
+                loginError();
+            }
+
+        }
+    });
+}
+
+
+function createAccountError(msg) {
+    $("#createAccountForm").addClass("error");
+    msg = msg || "Unable to create account";
+    $("#createAccountError").text(msg);
 }

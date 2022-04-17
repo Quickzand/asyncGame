@@ -48,11 +48,13 @@ input {
 }
 
 
-#loginForm.error input {
+#loginForm.error input,
+#createAccountForm.error input {
     background-color: var(--error-background-color);
 }
 
-#loginForm.error * {
+#loginForm.error *,
+#createAccountForm.error * {
     animation: shake 0.5s;
 }
 
